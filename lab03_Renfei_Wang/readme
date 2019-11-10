@@ -1,0 +1,30 @@
+This is a readme file for lab 3.
+
+1. Open the lab3.html with a browser
+
+2. Do key presses to specify the mode you want to change to:
+p or P: camera's pitch rotation mode
+y or Y: camera's yaw rotation mode
+r or R: camera's roll rotation mode
+
+z or Z: object rotates around it's local axis x
+x or X: object rotates around it's local axis y
+c or C: object rotates around it's local axis z
+
+***NOTE: if the mode is not specified, it is the default mode p (camera's pitch rotation mode)
+
+3. Do mousedown move to rotate the camera view or the model
+
+4. The following keys can be pressed anytime to move the object
+w or W: object moves forward
+s or S: object moves backward
+a or A: object moves left
+d or D: object moves right
+
+5. Click the button below the canvas anytime to change the geometry representation, change the background color and reset the screen
+
+
+
+**** Browser/OS I developed my code on:
+1. Browser: Firefox
+2. OS: windows 10

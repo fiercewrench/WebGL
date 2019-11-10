@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Renfei WebGL &mdash; lab2 </title>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<script type="text/javascript" src="glMatrix-0.9.5.min.js"></script>
+
+<!--  ************** Fragment Shader ************* --> 
+<script id="shader-fs" type="x-shader/x-fragment">
+precision mediump float;
+varying vec4 vColor; 
+
+void main(void) {
+        gl_FragColor = vColor; 
+    }
+</script>
+
+<!--  ************** Vertex Shader ************* --> 
+<script id="shader-vs" type="x-shader/x-vertex">
+
+    attribute vec3 aVertexPosition;
+    attribute vec4 aVertexColor;
+    varying vec4 vColor;
+// uniform - attribute for an object, not per vertex since it's a rigid body
+// once transport once and for all the drawings - already set in GPU
+// until you reset 
+    uniform mat4 uMVMatrix;
+
+    void main(void) {
+      // construct a matrix in js and use it in the shader
+      // how do we pass it?
+      // get address from the shader and associate with the address in the js (getUniformLocation - I want to get the address of that uniform variable in the shader)
+      gl_Position = uMVMatrix*vec4(aVertexPosition, 1.0);
+      vColor = aVertexColor;
+      gl_PointSize = 2.0;
+
+    }
+</script>
+
+
+<script type="text/javascript" src="shaders_setup.js"></script>
+<script type="text/javascript" src="lab2.js"></script>
+
+
+</head>
+
+
+<body onload="webGLStart();">
+
+    <canvas id="lab2-canvas"style="border:none;"width="500"height="500"></canvas>
+
+      <footer>
+    <center>
+      <p>&copy; CSE 5542 Lab2 WebGL: Renfei Wang, Ohio State University, 2019</p>
+    </center>
+    </footer>
+    
+</body>
+
+
+</html>
+

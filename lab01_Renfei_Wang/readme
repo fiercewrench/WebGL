@@ -1,0 +1,28 @@
+THIS IS A README FILE FOR LAB 01
+
+1. Open the lab1.html with a browser.
+
+2. Do key presses first to specify the properties of the geometry you want to draw next
+	p or P: Specify the next mouse click will draw a point
+	h or H: Specify the next mouse click will draw a horizontal line
+	v or V: Specify the next mouse click will draw a vertical line
+	t or T: Specify the next mouse click will draw a triangle
+	q or Q: Specify the next mouse click will draw a square
+	o or O: Specify the next mouse click will draw a circle
+
+	r or R: Specify the next shape drawn will be in red
+	g or G: Specify the next shape drawn will be in green
+	b or B: Specify the next shape drawn will be in blue
+
+	d or D: re-display the screen
+	c or C: clear the screen
+
+3. Do mouse clicks in the viewport to specify the position you want to draw
+
+** Attempted bonus tasks:
+1. Add the circle shape with key 'o' or 'O'
+2. Allow window resizing and after which making sure all shapes are repositioned and resized proportionally to the new window. Mouse click to add new shapes is still allowed.
+
+** Browser/OS I developed my code on:
+1. Browser: Firefox
+2. OS: windows 10

@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Renfei Wang WebGL &mdash; Lab4 </title>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<script type="text/javascript" src="glMatrix-0.9.5.min.js"></script>
+
+<!--  ************** Fragment Shader ************* --> 
+<script id="shader-fs" type="x-shader/x-fragment">
+precision mediump float;
+
+ 
+   uniform vec4 ambient_coef;
+   uniform vec4 diffuse_coef;
+   uniform vec4 specular_coef;
+   uniform float mat_shininess; 
+
+   uniform vec4 light_ambient; 
+   uniform vec4 light_diffuse; 
+   uniform vec4 light_specular;
+
+   uniform vec3 camera_pos;
+
+   varying vec4 light_pos_in_eye;
+   varying vec4 eye_pos;  //vertex position in eye space 
+   varying vec3 v_normal;  // vertex normal  
+
+void main(void) {
+ 
+
+        // light vector L = l-p 
+        vec3 light_vector = normalize(vec3(light_pos_in_eye - eye_pos)); 
+
+        // eye vector V = e-p, where e is the camera position
+        vec3 eye_vector = normalize(camera_pos-vec3(eye_pos));
+
+        vec4 ambient = ambient_coef * light_ambient; 
+
+        float ndotl = max(dot(v_normal, light_vector), 0.0); 
+        vec4 diffuse = diffuse_coef * light_diffuse* ndotl;
+
+        vec3 R = normalize(2.0 * ndotl *v_normal-eye_vector);
+        float rdotv = max(dot(R, eye_vector), 0.0);
+
+        vec4 specular;  
+        if (ndotl>0.0) 
+        specular = specular_coef* light_specular*pow(rdotv, mat_shininess); 
+        else
+        specular = vec4(0,0,0,1);  
+
+       
+
+        gl_FragColor = ambient+diffuse+specular;
+
+    }
+</script>
+
+<!--  ************** Vertex Shader ************* --> 
+<script id="shader-vs" type="x-shader/x-vertex">
+
+precision mediump float;
+    attribute vec3 aVertexPosition;
+    attribute vec3 aVertexNormal;
+
+  uniform vec4 light_pos;
+   uniform mat4 uMMatrix; 
+   uniform mat4 uVMatrix;
+   uniform mat4 uPMatrix;
+   uniform mat4 uNMatrix; 
+
+   varying vec4 light_pos_in_eye;
+   varying vec4 eye_pos;  //vertex position in eye space 
+   varying vec3 v_normal;  // vertex normal
+
+
+    void main(void) {
+
+        gl_Position = uPMatrix*uVMatrix*uMMatrix*vec4(aVertexPosition, 1.0);
+        light_pos_in_eye = uVMatrix *  light_pos;
+        v_normal =normalize(vec3(uNMatrix*vec4(aVertexNormal,0.0))); 
+        eye_pos = uVMatrix*uMMatrix*vec4(aVertexPosition, 1.0);
+
+    }
+</script>
+
+
+<script type="text/javascript" src="shaders_setup.js"></script>
+<script type="text/javascript" src="code12.js"></script>
+
+
+</head>
+
+
+<body onload="webGLStart();">
+    <canvas id="code12-canvas"style="border:none;"width="700"height="700"></canvas>
+
+    <h4> Geometry:  </h4>
+
+    <button  onclick="obj(1)"> all</button>
+    <button  onclick="obj(2)"> men and sphere</button>
+    <button  onclick="obj(3)"> sphere</button>
+
+  
+    
+
+</body>
+
+</html>
+

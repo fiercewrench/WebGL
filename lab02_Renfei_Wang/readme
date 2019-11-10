@@ -1,0 +1,55 @@
+THIS IS A README FILE FOR LAB 02.
+
+1. Open the lab2.html with a browser.
+
+2. Do key presses to specify the mode you want to change to:
+
+	W: turn on the global mode. The following operation you make will based on the global coordinate. (global scaling/global rotation)
+	w: turn off the global mode. The following operation you make will based on the local coordinate
+
+	A: turn on the selection mode. During the selection mode, any mouse click on a previously drawn shape can be chosen as the current shape. You can further rotate, enlarge, shrink or recolor the current shape.
+	a: turn off the selection mode.
+
+	*****NOTE!!!: 
+	a. Under the special mode (W or A), adding new shapes is disable for avoiding conflict functionalities of mouse clicks and key strokes. 
+	b. Furthermore, Under the global mode, triggerring the selection mode is disabled for the same reason and vice versa. 
+
+2. Do key presses to specify the properties of the geometry you want to draw next:
+
+	p or P: Specify the next mouse click will draw a point
+	h or H: Specify the next mouse click will draw a horizontal line
+	v or V: Specify the next mouse click will draw a vertical line
+	t or T: Specify the next mouse click will draw a triangle
+	q or Q: Specify the next mouse click will draw a square
+
+	r or R: Specify the next shape drawn will be in red
+	g or G: Specify the next shape drawn will be in green
+	b or B: Specify the next shape drawn will be in blue
+
+3. Do mouse clicks in the viewport to specify the position you want to draw. Hold the mouse and drag to add local rotations to the current shape. Release the mouse the draw.
+
+4. Additional key presses can be imposed on the current shapes
+
+	*****NOTE: current shape is either the latest drawn shape or the shape you select by mouse click under the selection mode.
+
+	select a shape by mouse click on it: make it as the current shape
+	select a shape by mouse click and mouse drag: make it as the current shape and impose local rotation
+
+	s: shrink the current shape
+	S: enlarge the current shape
+
+	r or R: change the color of the current shape drawn to red
+	g or G: change the color of the current shape drawn to green
+	b or B: change the color of the current shape drawn to blue
+
+5. Other functional keys which can be pressed anytime includes:
+
+	d or D: re-display the screen
+	c or C: clear the screen
+
+**** Attempted bonus point:
+Click on an shape previously defined and use mouse to rotate, 's/S' to scale, and 'r/g/b' to recolor (Using 'A' to turn on the selection mode before clicking the shape and using 'a' to turn off the selection mode.)
+
+**** Browser/OS I developed my code on:
+1. Browser: Firefox
+2. OS: windows 10
