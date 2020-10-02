@@ -1,0 +1,41 @@
+This is a readme file for lab 5.
+
+
+move light around the scheme in the world space:
+up arrow - light move up
+down arrow - light move down
+left arrow - light move left
+right arrow - light move right
+PgUp - light move toward objects
+PgDown - light move away from objects
+
+move objects:
+choose objects by clicking the button:
+1. all - house, men and sphere
+2. sphere and rectangle
+3. rectangle
+
+press keys to let the chosen objects roaming around in the viewport (local movement under the automatic rotation):
+w - objects move towards camera
+s - objects move away from camera
+a - objects move left
+d - objects move right
+q - objects move up
+z - objects move down
+
+press keys to specify the camera rotation mode (the default camera rotation mode is yaw)
+p - pitch
+y - yaw
+r - roll
+
+Choose Texture, Bump mapping and Geometry by clicking button.
+
+Redraw is also enabled by button.
+
+click on the viewport, move the mouse and then release to specify the angle of the camera rotation
+
+In the Phong Lightning, I set viewing position as the camera position so the specular light spot will change when rotating the camera.
+
+browser: Firefox
+OS: WIN 10
+Bonus: bump mapping
